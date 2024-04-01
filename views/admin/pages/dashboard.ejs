@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <%- include('../components/navbar') %>
+
+
+
+    <form action="/createuser" method="get">
+        <button class="createUser">createUser</button>
+    </form>
+        <div class="container searchContainer">
+
+            <form class="wrapper" action="/search" method="get">
+
+                <div class=" left">
+                    <input type="text" placeholder="search" name="search" id="">
+
+                </div>
+                <div class=" right">
+                  
+
+                    <button>search here</button>
+
+
+                    <form action="/clear" method="post">
+                        <button>Clear</button>
+                    </form>
+
+                </div>
+
+            </form>
+
+        </div>
+
+        <section class="intro mt-5">
+            <div class="gradient-custom-1 h-90">
+                <div class="mask d-flex align-items-center h-100">
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-12">
+                                <div class="table-responsive bg-white">
+                                    <table class="table mb-0">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">Id</th>
+                                                <th scope="col">User Name</th>
+                                                <th scope="col">Emial</th>
+                                                <th scope="col">Edit </th>
+                                            </tr>
+                                        </thead>
+
+
+                                        <tbody>
+                                            <% if (users && users.length) { %>
+                                                <% users.forEach(function(user,i) { %>
+                                                    <tr>
+                                                        <td>
+                                                            <%= i+1 %>
+                                                        </td>
+                                                        <td>
+                                                            <%= user.username %>
+                                                        </td>
+                                                        <td>
+                                                            <%= user.email %>
+                                                        </td>
+                                                        <td>
+                                                            <div class="div d-flex gap-5">
+
+                                                                <form action="/getUser" method="get">
+                                                                    <input type="hidden" name="user_id"
+                                                                        value=" <%= user._id %>">
+                                                                    <button class="btn btn-primary">Edit</button>
+                                                                </form>
+                                                                <form class="ml-2" action="/deleteuser" method="post"
+                                                                    onsubmit="return confirm('Are you sure you want to delete this user?');">
+                                                                    <input type="hidden" name="user_id"
+                                                                        value="<%= user._id %>">
+                                                                    <button class="btn btn-danger">Delete</button>
+                                                                </form>
+
+
+                                                            </div>
+
+                                                        </td>
+                                                    </tr>
+                                                    <% }); %>
+                                                        <% } else { %>
+                                                            <tr>
+                                                                <td colspan="3">No users found</td>
+                                                            </tr>
+                                                            <% } %>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <style>
+            html,
+            body,
+            .intro {
+                height: 100%;
+                background: #ECF0F3;
+            }
+
+
+            table td,
+            table th {
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                overflow: hidden;
+            }
+            .createUser{
+                padding: 8px 15px;
+                border-radius: 8px;
+                border: 1px solid gray;
+                margin-top: 30px;
+                margin-left: 120px;
+            }
+            tbody td {
+                font-weight: 500;
+                color: #999999;
+            }
+
+            .searchContainer {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                height: 60px;
+
+            }
+
+            .searchContainer .wrapper {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                display: flex;
+                height: 100%;
+                width: 100%;
+                margin-top: 50px;
+            }
+
+            .left {
+                flex: 1;
+                display: flex;
+                align-items: center;
+                justify-content: start;
+            }
+
+            .right {
+                flex: 1;
+                display: flex;
+                align-items: center;
+                justify-content: end;
+                gap: 10px;
+            }
+
+            .right button {
+                padding: 10px 20px;
+                border: 1px solid rgba(0, 0, 0, 0.644);
+                border-radius: 25px;
+            }
+
+            .wrapper .left input {
+                padding: 10px 30px;
+                border: 1px solid rgba(0, 0, 0, 0.623);
+                border-radius: 25px;
+            }
+        </style>
+</body>
+
+</html>

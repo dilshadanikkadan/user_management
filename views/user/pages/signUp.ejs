@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/loginBox.css">
+
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  
+</head>
+
+<body>
+
+  
+    
+    <div class="wrapper">
+        <div class="logo">
+            <img src="/images/log.png" alt="">
+
+        </div>
+        <div class="text-center mt-4 name">
+            Sign Up
+        </div>
+        <form class="p-3 mt-3"  action="/signUp" method="post">
+        
+        
+
+            <% if (message) { %>
+                <p class="errorMsg text-danger ml-2">
+                    <%= message %>
+                </p>
+            <% } else { %>
+                <p class="errorMsg text-danger ml-2">
+                 <%=  %>
+                </p>
+            <% } %>
+            <div class="form-field d-flex align-items-center">
+                <span class="far fa-user"></span>
+                <input type="text" name="username" id="userName" placeholder="Username">
+            </div>
+            <div class="form-field d-flex align-items-center">
+                <span class="far fa-user"></span>
+                <input type="text" name="email" id="email" placeholder="email">
+            </div>
+            <div class="form-field d-flex align-items-center">
+                <span class="fas fa-key"></span>
+                <input type="password" name="password" id="pwd" placeholder="Password">
+            </div>
+            <button id="signupButton" class="btn mt-3">Login</button>
+        </form>
+        <div class="text-center fs-6">
+            <a href="">log As Admin</a> or <a href="/login">Login</a>
+        </div>
+    </div>
+
+
+
+
+    <style>
+        body {
+            background-color: #ECF0F3;
+        }
+    </style>
+
+    
+</body>
+
+</html>

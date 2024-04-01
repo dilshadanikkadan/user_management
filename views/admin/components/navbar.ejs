@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Protest+Riot&display=swap" rel="stylesheet">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+</head>
+
+<body>
+    <nav class="navbar ">
+        <div class="left">
+           <a style="color: rgba(0, 0, 0, 0.822);" href="/admin/dashboard"> <h3 class="logo">DashBoard</h3> </a>
+        </div>
+
+        <div class="right">
+            <form action="/logoutnew" method="post">
+
+                <button class="adminLogout">Logout</button>
+            </form>
+        </div>
+
+    </nav>
+
+    <style>
+        .adminLogout{
+           background-color: rgba(0, 0, 0, 0.719);
+           color: white;
+           padding: 7px 14px;
+
+        }
+        .navbar {
+            height: 100px;
+            background-color: white;
+            box-shadow: 18px 15px 41px -14px rgba(0, 0, 0, 0.75);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .navbar .left {
+
+            flex: 1;
+        }
+
+        .logo {
+            margin-left: 60px;
+            font-family: 'Protest Riot', sans-serif;
+            font-size: 40px;
+        }
+
+        .navbar .right {
+            flex: 1;
+        }
+    </style>
+</body>
+
+</html>
